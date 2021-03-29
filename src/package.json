@@ -1,0 +1,14 @@
+{
+  "name": "kaholo-plugin-aws-resource-groups-tagging",
+  "version": "1.0.0",
+  "description": "AWS Resource Groups Tagging Plugin",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kaholo Team(Amit Alon)",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.870.0"
+  }
+}
