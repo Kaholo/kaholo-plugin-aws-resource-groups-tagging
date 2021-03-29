@@ -1,0 +1,56 @@
+{
+  "name": "AWS-resource-groups-tagging",
+  "type": "executer",
+  "imgUrl": "logo.png",
+  "execProgram": "node",
+  "main": "app.js",
+  "version": "1.0.0",
+  "description":"AWS Resource Groups Tagging Plugin",
+  "settings":[
+    {
+      "name":"accessKeyId",
+      "viewName": "Access key ID",
+      "type": "string"
+    },
+    {
+      "name": "secretAccesKey",
+      "viewName": "Secret Access key",
+      "type": "vault"
+    }
+  ],
+  "methods": [
+    {
+      "name": "tagResources",
+      "viewName": "Tag Resources",
+      "params": [
+        {
+          "name": "accessKeyId",
+          "viewName": "Access Key ID",
+          "type": "string"
+        },
+        {
+          "name": "secretAccesKey",
+          "viewName": "Secret Access key",
+          "type": "vault"
+        },
+        {
+          "name": "region",
+          "viewName":"Region",
+          "type": "autocomplete",
+          "autocompleteType": "function",
+          "functionName": "listRegions"
+        },
+        {
+          "name": "resourcesArn",
+          "viewName": "Resources ARN",
+          "type": "text"
+        },
+        {
+          "name": "tags",
+          "viewName": "Tags",
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
