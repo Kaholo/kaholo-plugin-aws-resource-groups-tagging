@@ -9,13 +9,6 @@ function getClient(action, settings){
     return new aws.ResourceGroupsTaggingAPI(options);
 }
 
-function getAwsCallback(resolve, reject){
-    return (error, data) => {
-        if (error) return reject(error);
-        return resolve(data);
-    }
-}
-
 function handleArrParam(param){
     if (Array.isArray(param)){
         return param;
@@ -35,7 +28,5 @@ function handleAutocomplete(param){
 
 module.exports = {
     getClient,
-    getAwsCallback,
-    handleArrParam,
-    handleAutocomplete
+    handleArrParam
 };
