@@ -1,4 +1,4 @@
-const { getClient, getAwsCallback, handleArrParam } = require("./helpers");
+const { getClient, handleArrParam } = require("./helpers");
 const { listRegions } = require('./autocomplete');
 
 async function tagResources(action,settings) {
@@ -33,8 +33,21 @@ async function tagResources(action,settings) {
     };
 
     const client = getClient(action, settings);
+    return tagResourcesByParams(client, params);
+}
+
+async function tagResourcesByParams(client, params){
     return new Promise((resolve, reject) => {
-        client.tagResources(params, getAwsCallback(resolve, reject));
+        client.tagResources(params, (error, data) => {
+            if (error){
+                return reject(error);
+            } 
+            // check for failed tags. if any tag failed, reject
+            if (data.hasOwnProperty("FailedResourcesMap") && Object.keys(data.FailedResourcesMap).length === 0){
+                return resolve(data);
+            }
+            return reject(data);
+        });
     });
 }
 
