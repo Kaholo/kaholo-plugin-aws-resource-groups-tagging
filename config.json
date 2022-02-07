@@ -14,7 +14,7 @@
       "type": "vault"
     },
     {
-      "name": "secretAccesKey",
+      "name": "secretAccessKey",
       "viewName": "Secret Access key",
       "type": "vault"
     }
@@ -30,7 +30,7 @@
           "type": "vault"
         },
         {
-          "name": "secretAccesKey",
+          "name": "secretAccessKey",
           "viewName": "Secret Access key",
           "type": "vault"
         },
