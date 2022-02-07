@@ -9,6 +9,21 @@ function getClient(action, settings){
     return new aws.ResourceGroupsTaggingAPI(options);
 }
 
+function getEc2(params, settings) {
+    return new aws.EC2({
+        region: handleAutocomplete(params.region),
+        accessKeyId: params.accessKeyId|| settings.accessKeyId,
+        secretAccessKey: params.secretAccesKey || settings.secretAccesKey
+    });
+}
+
+function getLightsail(params, settings) {
+    return new aws.Lightsail({
+        region: handleAutocomplete(params.region),
+        accessKeyId: params.accessKeyId || settings.accessKeyId,
+        secretAccessKey: params.secretAccesKey || settings.secretAccesKey
+    });
+}
 function handleArrParam(param){
     if (Array.isArray(param)){
         return param;
@@ -27,6 +42,8 @@ function handleAutocomplete(param){
 }
 
 module.exports = {
+    getEc2,
+    getLightsail,
     getClient,
     handleArrParam
 };

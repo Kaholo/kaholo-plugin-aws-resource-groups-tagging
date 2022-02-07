@@ -4,14 +4,14 @@
   "imgUrl": "logo.png",
   "execProgram": "node",
   "main": "app.js",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description":"AWS Resource Groups Tagging Plugin",
   "category": "CLOUD",
   "settings":[
     {
       "name":"accessKeyId",
       "viewName": "Access key ID",
-      "type": "string"
+      "type": "vault"
     },
     {
       "name": "secretAccesKey",
@@ -27,7 +27,7 @@
         {
           "name": "accessKeyId",
           "viewName": "Access Key ID",
-          "type": "string"
+          "type": "vault"
         },
         {
           "name": "secretAccesKey",
