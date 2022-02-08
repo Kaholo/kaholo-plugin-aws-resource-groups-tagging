@@ -1,6 +1,6 @@
 {
   "name": "kaholo-plugin-aws-resource-groups-tagging",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "AWS Resource Groups Tagging Plugin",
   "main": "app.js",
   "scripts": {
