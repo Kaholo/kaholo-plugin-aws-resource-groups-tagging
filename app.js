@@ -41,7 +41,7 @@ async function tagResourcesByParams(client, params){
         client.tagResources(params, (error, data) => {
             if (error){
                 return reject(error);
-            } 
+            }
             // check for failed tags. if any tag failed, reject
             if (data.hasOwnProperty("FailedResourcesMap") && Object.keys(data.FailedResourcesMap).length === 0){
                 return resolve(data);
@@ -50,6 +50,7 @@ async function tagResourcesByParams(client, params){
         });
     });
 }
+
 
 module.exports = {
     tagResources,
