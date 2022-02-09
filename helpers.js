@@ -3,12 +3,27 @@ const aws = require("aws-sdk");
 function getClient(action, settings){
     const options = {
         "accessKeyId": action.params.accessKeyId || settings.accessKeyId,
-        "secretAccessKey": action.params.secretAccesKey || settings.secretAccesKey,
+        "secretAccessKey": action.params.secretAccessKey || settings.secretAccessKey,
         "region": handleAutocomplete(action.params.region)
     }
     return new aws.ResourceGroupsTaggingAPI(options);
 }
 
+function getEc2(params, settings) {
+    return new aws.EC2({
+        region: handleAutocomplete(params.region),
+        accessKeyId: params.accessKeyId|| settings.accessKeyId,
+        secretAccessKey: params.secretAccessKey || settings.secretAccessKey
+    });
+}
+
+function getLightsail(params, settings) {
+    return new aws.Lightsail({
+        region: handleAutocomplete(params.region),
+        accessKeyId: params.accessKeyId || settings.accessKeyId,
+        secretAccessKey: params.secretAccessKey || settings.secretAccessKey
+    });
+}
 function handleArrParam(param){
     if (Array.isArray(param)){
         return param;
@@ -27,6 +42,8 @@ function handleAutocomplete(param){
 }
 
 module.exports = {
+    getEc2,
+    getLightsail,
     getClient,
     handleArrParam
 };
